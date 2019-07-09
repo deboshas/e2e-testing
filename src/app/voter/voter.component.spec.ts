@@ -35,7 +35,7 @@ describe('VoterComponent', () => {
   });
   it('should highlight upvote button if click on upvote', () => {
     component.othersVote = 20;
-    component.myVote = 9;
+    component.myVote = 1;
     fixture.detectChanges();
     let de = fixture.debugElement.query(By.css(".glyphicon-menu-up"));
     console.log(de);
@@ -44,11 +44,13 @@ describe('VoterComponent', () => {
   });
   it('should increse total votes when click on upvote button', () => {
 
-
+    component.othersVote = 20;
+    component.myVote = 9;
     let button = fixture.debugElement.query(By.css(".glyphicon-menu-up"));
     button.triggerEventHandler('click', null);
     fixture.detectChanges();
-    expect(component.totalVotes).toBe(1);
+    console.log(component.totalVotes);
+    expect(component.totalVotes).toBe(30);
 
   });
 });
